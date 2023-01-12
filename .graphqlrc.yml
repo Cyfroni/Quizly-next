@@ -1,0 +1,2 @@
+schema: ${GRAPHQL_API_URL}
+documents: "app/**/*.tsx"
