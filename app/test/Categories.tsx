@@ -5,16 +5,11 @@ import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import { Fragment, useState } from "react";
 
-// const categories = [
-//   { id: 1, name: "Wade Cooper" },
-//   { id: 2, name: "Arlene Mccoy" },
-//   { id: 3, name: "Devon Webb" },
-//   { id: 4, name: "Tom Cook" },
-//   //   { name: "Tanya Fox" },
-//   //   { name: "Hellen Schmidt" },
-// ];
-
-export default function Categories({ categories }) {
+export default function Categories({
+  categories,
+}: {
+  categories: { id: number; name: string }[];
+}) {
   const [selected, setSelected] = useState([]);
 
   return (
@@ -74,9 +69,7 @@ export default function Categories({ categories }) {
         </div>
       </Listbox>
       <Link
-        href={`test/test?categories=${JSON.stringify(
-          selected.map(({ id }) => id)
-        )}`}
+        href={`test/${selected.map(({ id }) => id).join("-")}?question=0`}
         className="mt-4 block rounded-lg border px-2 py-1 text-center"
       >
         Start Test
