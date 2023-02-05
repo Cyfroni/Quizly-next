@@ -9,7 +9,7 @@
     "codegen": "graphql-codegen",
     "codegen:watch": "graphql-codegen --watch",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint && tsc --noemit"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.7",

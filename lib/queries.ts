@@ -19,3 +19,16 @@ export const getQuestionsByCategory = cache((categoryId: number) =>
     { categoryId }
   )
 );
+
+export const getCategories = cache(() =>
+  graphQLClient.request(
+    graphql(`
+      query getCategories {
+        categories {
+          id
+          name
+        }
+      }
+    `)
+  )
+);
