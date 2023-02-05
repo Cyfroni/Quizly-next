@@ -1,4 +1,4 @@
-import { useQuestionsByCategory } from "../../../lib/queries";
+import { getQuestionsByCategory } from "../../../lib/queries";
 import { QuestionProvider } from "./QuestionContext";
 
 export default async function Layout({
@@ -11,9 +11,7 @@ export default async function Layout({
   const categories = params.categories.split("-");
   // TODO: should filter by all categories
   const categoryId = parseInt(categories[0]);
-  const questions = await useQuestionsByCategory({
-    categoryId,
-  });
+  const questions = await getQuestionsByCategory(categoryId);
 
   return (
     <QuestionProvider value={questions.questions}>{children}</QuestionProvider>

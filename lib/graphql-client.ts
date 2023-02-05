@@ -9,8 +9,6 @@ export const graphQLClient = new GraphQLClient(
         console.error(res.message);
         return;
       }
-
-      // console.log(res.data);
     },
   }
 );
