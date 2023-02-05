@@ -1,22 +1,24 @@
 import { getQuestionsByCategory } from "../../../lib/queries";
-import { QuestionProvider } from "./QuestionContext";
 
-export default async function Layout({
+export default async function Head({
   params,
-  children,
 }: {
   params: { categories: string };
-  children: React.ReactNode;
 }) {
   const categories = params.categories.split("-");
   // TODO: should filter by all categories
   const categoryId = parseInt(categories[0]);
-  const questions = await getQuestionsByCategory(categoryId);
   // const questions = await getQuestionsByCategory({
   //   categoryId,
   // });
+  const questions = await getQuestionsByCategory(categoryId);
 
   return (
-    <QuestionProvider value={questions.questions}>{children}</QuestionProvider>
+    <>
+      <title>Quizly</title>
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
+      <meta name="description" content="Learn exam questions with ease" />
+      <link rel="icon" href="/quizly-logo-small.svg" />
+    </>
   );
 }
