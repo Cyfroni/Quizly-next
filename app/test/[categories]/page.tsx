@@ -9,7 +9,7 @@ export default function Page({
   searchParams,
 }: {
   params: { categories: string };
-  searchParams: { question?: string };
+  searchParams?: { question?: string };
 }) {
   const question = parseInt(searchParams?.question || "0");
   const q = useQuestion(question);

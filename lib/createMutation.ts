@@ -35,7 +35,8 @@ export const createMutation = <TResult, TVariables>(
 ) => {
   return () =>
     useMutation(
-      async (params?: TVariables): Promise<TResult> =>
+      async (params: TVariables): Promise<TResult> =>
+        // @ts-ignore
         graphQLClient.request(QGL, params)
     );
 };
