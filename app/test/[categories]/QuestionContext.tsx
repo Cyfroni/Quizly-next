@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useContext } from "react";
-import { Question } from "../../../../src/gql/graphql";
+import { Question } from "../../../src/gql/graphql";
 
 const QuestionContext = React.createContext<Question[]>([]);
 

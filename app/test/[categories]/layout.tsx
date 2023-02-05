@@ -1,5 +1,5 @@
 import { useQuestionsByCategory } from "../../../lib/queries";
-import { QuestionProvider } from "./[question]/QuestionContext";
+import { QuestionProvider } from "./QuestionContext";
 
 export default async function Layout({
   params,
@@ -14,14 +14,7 @@ export default async function Layout({
     categoryId,
   });
 
-  // console.log(questions);
-  console.log("layout");
-
   return (
-    <div>
-      <QuestionProvider value={questions.questions}>
-        {children}
-      </QuestionProvider>
-    </div>
+    <QuestionProvider value={questions.questions}>{children}</QuestionProvider>
   );
 }
