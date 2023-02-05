@@ -1,5 +1,4 @@
-import { useQuestionsByCategory } from "../../../lib/queries";
-import { QuestionProvider } from "./[question]/QuestionContext";
+import { useQuestionsByCategory } from "../../../../lib/queries";
 
 export default async function Layout({
   params,
@@ -19,9 +18,10 @@ export default async function Layout({
 
   return (
     <div>
-      <QuestionProvider value={questions.questions}>
-        {children}
-      </QuestionProvider>
+      <h1 className="block border-b p-2 text-3xl">
+        Question: {params.question}/{questions.questions.length}
+      </h1>
+      {children}
     </div>
   );
 }

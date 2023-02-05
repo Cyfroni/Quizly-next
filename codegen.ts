@@ -4,7 +4,7 @@ dotenv.config();
 
 const config: CodegenConfig = {
   schema: process.env.GRAPHQL_API_URL,
-  documents: ["app/**/*.tsx"],
+  documents: ["app/**/*.tsx", "lib/queries.ts"],
   generates: {
     "src/gql/": {
       preset: "client",
